@@ -7,3 +7,7 @@ tags:
 categories: Spring扩展
 date: 2015-09-06 22:41:15
 ---
+![Alt text](/img/xml.png "xml")
+
+扩展XML中的schema定义标签,便于功能的进一步封装和使用。
+<!--more-->
