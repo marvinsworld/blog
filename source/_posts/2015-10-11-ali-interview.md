@@ -6,9 +6,9 @@ categories: 感悟
 <img src="/img/ali_think.jpg" alt="think" width="600" height="340" />
 优秀的面试官会对面试问题进行引导和扩展，并据此分析面试者的分析问题和解决问题的方式和思路，从而侧面了解面试者的优缺点。不合格的面试官的面试场景通常是这样的：
 
-面试官：请你讲讲SpringMVC的DispatcherServlet的原理
+面试官：请你讲讲SpringMVC的DispatcherServlet的原理(一上来有些深度)
 
-面试者：不太清楚
+面试者：不太清楚(茫然)
 
 面试官：……
 
