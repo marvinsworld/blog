@@ -3,7 +3,7 @@ date: 2015-10-11 15:21:28
 tags: [面试,感悟,整体,解决思路]
 categories: 感悟
 ---
-<img src="/img/ali_think.jpg" alt="think" width="600" height="340" />
+<img src="/img/ali_think.jpg"  width="600" height="600" class="img-topic" />
 优秀的面试官会对面试问题进行引导和扩展，并据此分析面试者的分析问题和解决问题的方式和思路，从而侧面了解面试者的优缺点。不合格的面试官的面试场景通常是这样的：
 
 面试官：请你讲讲SpringMVC的DispatcherServlet的原理（一上来有些深度）

@@ -3,7 +3,7 @@ date: 2015-12-14 21:18:28
 categories: ZooKeeper怎么玩
 tags:
 ---
-<img src="/img/zk_install.png" alt="ZK的部署" width="300" height="300" />
+<img src="/img/zk_install.png" width="250" height="250" class="img-topic" />
 Zookeeper的部署比较简单,不过仍然要注意一些细节,尤其是在生产环境中部署时更多的需要考虑硬件条件,优化及性能方面的问题.当然这里只是一些个人的见解,如有不妥,请各位看官带着辩证的思想思考.
 <!--more-->
 
