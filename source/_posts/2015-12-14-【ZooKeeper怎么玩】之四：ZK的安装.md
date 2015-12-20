@@ -7,6 +7,10 @@ tags:
 Zookeeper的部署比较简单,不过仍然要注意一些细节,尤其是在生产环境中部署时更多的需要考虑硬件条件,优化及性能方面的问题.当然这里只是一些个人的见解,如有不妥,请各位看官带着辩证的思想思考.
 <!--more-->
 
+# 伪集群部署
+
+
+
 # 集群部署
 
 首先需要准备<strong>至少三台</strong>机器来搭建zookeeper集群,为什么至少三台服务器呢?参见[为什么推荐部署Zookeeper的机器是奇数呢](#为什么推荐部署Zookeeper的机器是奇数呢 "为什么"),这里咱们专注如何集群部署.
@@ -34,7 +38,10 @@ Zookeeper的部署比较简单,不过仍然要注意一些细节,尤其是在生
 ```java
 	zkServer.sh start
 ```	
-
+	启动客户端的命令是:
+```java
+	zkCli.sh
+```		
 
 # 为什么推荐部署Zookeeper的机器是奇数呢
 
@@ -44,6 +51,18 @@ Zookeeper的部署比较简单,不过仍然要注意一些细节,尤其是在生
 
 操作系统上,Zookeeper对于主流的操作系统都是支持的,比如GNU/Linux,Sun Solaris,FreeBSD,MacOSX,Win32,Win64等(好像主流的操作系统也就这些了呵呵).软件上,Zookeeper是由java语言编写的,需要至少<strong>使用JDK6或者更高的版本</strong>.FreeBSD操作系统的话,需要openjdk7.
 
-Zookeeper的定位就是集群,因此在学习研究推荐使用集群部署的方式,不过考虑到平时开发测试环境中资源有限的情况,也可以使用单机部署,调试更加方便.
+Zookeeper的定位就是集群,因此在学习研究推荐使用集群部署的方式,不过考虑到平时开发环境中服务器资源有限,也可以使用单机部署,学习更加方便.
 
-#单机部署
+# 单机部署
+
+单机部署更是简单,只需要把集群部署中第3步的配置修改如下配置,启动即可,so easy!
+```java
+	tickTime=2000
+	initLimit=10
+	syncLimit=5
+	dataDir=/data/zookeeper
+	clientPort=2181
+```	
+# 结束
+
+总体来说,zookeeper的部署很简单,在研究学习过程中,还是推荐大家使用伪集群模式部署.在生产环境使用zookeeper时还需要根据硬件条件调整zookeeper的相应配置
