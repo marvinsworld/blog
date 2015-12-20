@@ -26,7 +26,7 @@ Zookeeper的部署比较简单,不过仍然要注意一些细节,尤其是在生
 	该配置所在的位置是%ZK_HOME%/conf目录下,参数不做详细解释.不过需要注意的是:
 	* 第4行,dataDir属性强烈不推荐使用默认的tmp,在使用过程中由于系统会清空tmp目录,造成一些奇特现象.
 	* 第5行,clientPort是客户端端口
-	* 第6行,server.id=host:port:port中的id是唯一的,范围在1~255,第一个port是从follower节点连接到leader节点的端口;第二个port是进行leader选举的端口
+	* 第6行,server.id=host:port:port中的id是唯一的,范围在1~255,第一个port是从follower节点连接到leader节点的端口;第二个port是进行leader选举的端口.
 4. 创建myid文件
 	在dataDir所在目录下创建名为myid的文件,并在该文件第一行写上该机器对应的编号,即配置文件中server.id的id
 5. 拷贝步骤3的配置到其他服务器上.
