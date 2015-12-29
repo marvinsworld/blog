@@ -3,9 +3,6 @@ date: 2015-12-14 21:18:28
 categories: ZooKeeper怎么玩
 tags:
 ---
-<span id="aaa_container_page_pv">
-  本文总阅读量<span id="aaa_value_page_pv"></span>次
-</span>
 <img src="/img/zk_install.png" width="250" height="250" class="img-topic" />
 ZooKeeper有两种部署方式:集群模式和单机模式.集群模式一般用于生产环境,对系统的可用性要求较高,不会因为单点故障而导致整个系统不可用.而单机模式是ZooKeeper的最低要求,仅供平时测试,开发时使用.
 <!--more-->
