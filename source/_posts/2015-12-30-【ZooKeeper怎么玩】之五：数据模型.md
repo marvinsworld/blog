@@ -16,8 +16,13 @@ Znode有三部分组成:数据信息,状态信息和子节点.
 
 Znode的状态信息中使用了两种类型的来共同表示:zxid和版本号
 
+# zxid
+是ZooKeeper的事务ID,每次Znode变更时,都会会产生一个唯一的zxid,并且是全局有序的,对于同一个节点,序号越大表示变更的时间约晚.zxid是64位数字,高32位表示选举的zxid,低32位表示自增计数(待完善)
+
 
 # 版本
+
+Znode有三个版本字段,verion,cversion,aversion.version是Znode的版本号,使用乐观锁的思想,每次变动都会自增version,而cversion是子节点的版本号,
 
 
 # 节点类型
