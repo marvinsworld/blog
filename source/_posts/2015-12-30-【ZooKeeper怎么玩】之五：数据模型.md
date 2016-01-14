@@ -26,7 +26,8 @@ Znode有三个版本字段,verion,cversion,aversion.version是Znode的版本号,
 
 
 # 节点类型
-Znode
+ZooKeeper的节点分为持久节点(persistent),临时节点(ephemeral)两类,还有一种分类是根据是否有序分的:顺序节点,无序节点,这样就会组合成四种.如何确定是否有序还是无序?
+Stat类的ephemeralOwner标记节点类型
 
 
 # 优势
