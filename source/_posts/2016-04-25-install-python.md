@@ -29,11 +29,11 @@ data = reponse.read()
 
 # Windows上安装
 
-新手建议先在windows下安装,因为mac和linux系统会自带python2.x,上手相对困难一些,不过更希望更多的开发者从windows上迁移到mac和linux上,个中原因,你懂的。
+新手建议先在windows下安装，因为mac和linux系统会自带python2.x，上手相对困难一些，不过更希望更多的开发者从windows上迁移到mac和linux上，个中原因，你懂的。
 
-推荐使用python3.x,从[官网](https://www.python.org/downloads/windows/),下载相应的系统版本。一路下一步即可。
+推荐使用Python3.x，从[官网](https://www.python.org/downloads/windows/)，下载相应的系统版本。一路下一步即可。
 
-安装后,需要设置变量。右击我的电脑--属性--高级系统设置--环境变量--系统变量,找到PATH。假如你的安装版本为3.5.1,安装目录为D:\ProgramSoft\Python35,在最前面加入如下片段,注意分号
+安装后,需要设置变量。右击我的电脑--属性--高级系统设置--环境变量--系统变量，找到PATH。假如你的安装版本为3.5.1，安装目录为D:\ProgramSoft\Python35，在最前面加入如下片段，注意分号
 ```python
 D:\ProgramSoft\Python35\Scripts\;D:\ProgramSoft\Python35\;
 ```
@@ -51,8 +51,6 @@ Python 3.5.1
 
 暂时略
 
-# The Red Pill Or The Blue
+# The Red Pill Or The Blue One
 
-python流行的有两个版本2.7和python3,两个版本差异很大,这跟初学者带来了很大的不便,网上很多都是python2。如果新手建议使用python3,毕竟代表更先进的生产力。
-
-Python在2.x和3.x上一直被人视为最大的败笔。时代在进步，历史在召唤，我会坚定不移的沿着Python3的这条道路上走下去，你呢？
+Python在2.x和3.x上一直被人视为最大的败笔，两个版本差异很大，网上很多资料都是Python2.x，跟初学者带来了很多的不便，尤其是很多的文章中没有明确指出Python解释器的版本。两个迥异的版本就像墨菲斯在第一次见到尼奥的时候，让尼奥选择蓝色药丸还是红色药丸一样，选择蓝色药丸可以安于现状，网上更多的是Python2.x的内容，资料和插件相对丰富，却故步自封，无法使用最新的技术；而选择红色药丸却可以和Python一同进步，创造更好的未来。时代在进步，历史在召唤，我会坚定不移的沿着Python3的这条道路上走下去，你呢？
