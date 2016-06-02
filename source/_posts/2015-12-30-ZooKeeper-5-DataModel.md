@@ -1,4 +1,4 @@
-title: 【ZooKeeper怎么玩】之五：数据模型
+title: ZooKeeper怎么玩之五：数据模型
 date: 2015-12-30 22:16:07
 tags:
 ---

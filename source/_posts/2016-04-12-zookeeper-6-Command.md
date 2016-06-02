@@ -1,4 +1,4 @@
-title: 【ZooKeeper怎么玩】之六：常用命令
+title: ZooKeeper怎么玩之六：常用命令
 date: 2016-04-12 17:02:04
 categories: ZooKeeper怎么玩
 tags: 

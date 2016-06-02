@@ -1,4 +1,4 @@
-title: 【ZooKeeper怎么玩】之四：ZK的部署
+title: ZooKeeper怎么玩之四：ZK的部署
 date: 2015-12-14 21:18:28
 categories: ZooKeeper怎么玩
 tags:
