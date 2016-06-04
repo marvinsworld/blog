@@ -1,5 +1,6 @@
 title: ZooKeeper怎么玩之五：数据模型
 date: 2015-12-30 22:16:07
+categories: ZooKeeper怎么玩
 tags:
 ---
 <img src="/img/zk_node.png" width="500" height="500" class="img-topic" />
