@@ -66,3 +66,44 @@ Paxos真正要解决的问题，Wiki上是这样描述的：
 
 ## Client动作
 - **请求（request）**：向Server发起请求
+
+# 算法三阶段
+## Phase1:Prepare
+**角色Proposer**
+**P1a**：Proposer生成了一个编号epochNo（规则：全局唯一且递增），向Acceptor半数以上成员发送Prepare请求。
+
+**角色Acceptor**
+**P1b**：Acceptor收到Prepare请求，判断：收到的epochNo是否之前已回复的最大提案的epochNo大,比对结果是true：
+> 1. 持久化epochNo，标记为Max-epochNo（下图中的#1）
+> 2. 回复请求，返回已经**Accept**的提案中**最大的**epochNo和对应的value（下图中{NULL,NULL}）
+> 3. 承诺，不会Accept任何小于Max-epochNo的提案
+
+![Prepare阶段](/img/paxos-prepare.png "Prepare阶段")
+
+## Phase2:Accept
+**角色Proposer**
+**P2a**：Proposer收到一部分Acceptor的prepare请求后的回复，情况如下：
+> 1. 回复数量大于一半的Acceptor的数量，且所有回复的value都是空，则Proposer发送accept请求，带上**自己指定的value**
+> 2. 回复数量大于一半的Acceptor的数量，且有的回复value不为空，则Proposer发送accept请求，带上**回复中epochNo最大的value**
+> 3. 回复数量小于等于一半Acceptor数量，则尝试生成更大的epochNo，再执行P1a
+
+**角色Acceptor**
+**P2b**：Acceptor收到accept请求后，
+> 1. 收到的epochNo等于Max-epochNo，回复提交成功，持久化epochNo和value
+> 2. 收到epochNo小于Max-epochNo，则不回复。P1b中3承诺
+
+![Accept阶段](/img/paxos-accept.png "Accept阶段")
+
+## Phase3:Chosen
+**角色Acceptor**
+**P3a**：Acceptor将已经accept的请求通知给陪审团Learner（Jury Learner）
+
+![Chosen阶段](/img/paxos-chosen.png "Chosen阶段")
+
+**角色Jury Learner**
+**P3b**：陪审团Learner（Jury Learner）收到一部分Acceptor回复accept请求的结果。
+> 1. 回复数量大于一半的Acceptor数量，表示value提交成功，可以发送广播给所有的Proposer、Acceptor、Learner，通知它们已chosen的value
+> 2. 回复数量小于等于一半的Acceptor数量，Proposer会尝试生成更大的epochNo，重复P1a操作。
+
+![Broadcast阶段](/img/paxos-broadcast.png "Broadcast阶段")
+
