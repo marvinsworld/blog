@@ -107,3 +107,42 @@ Paxos真正要解决的问题，Wiki上是这样描述的：
 
 ![Broadcast阶段](/img/paxos-broadcast.png "Broadcast阶段")
 
+# 疑问
+1. Paxos究竟在解决一个什么问题？
+> 分布式存储系统中存在冗余副本，如果不对更新操作的顺序进行控制，就无法保证每个副本的更新操作顺序是一致的，进而无法保证副本之间数据一致性。Paxos旨在解决多副本之间如何保证一次更新操作的数据一致性问题。如果要解决多次更新操作的问题，需要Multi Paxos。
+
+2. 第一阶段Prepare在做什么？
+> 如果同时有多个议案，可能会导致每个acceptor都接受一个议案，形成不了大多数，造成死锁。第一阶段是竞争提案号，Prepare阶段采用“后来居上”的方式，后者在有更大的epoch的情况下，可以获取互斥访问权限，不会造成死锁。
+
+3. 第二阶段Accept在做什么？
+> 某些Proposer依次或者同时发起不同的提案，由于网络故障，提案的请求可能在中途部分丢失，每种提案都可能都只有不同少数派Acceptor接收到，每个提案都无法形成多数派，形成死锁。第二阶段是竞争提案值，Accept阶段采用“先到先得”的方式，
+
+4. 怎么理解accept？
+> 当Acceptor接收（receive）到Proposer提交的请求，经过判断后发现这次请求中带着的提案编号是当前Acceptor持久化的提案编号，确定当前的value值为选定的value值，这是Acceptor接受（accept）请求
+
+5. 谁来批准提案，形成决议的时机是什么时候？
+> 在优化的方案中，有这样一组陪审团Learners（暂且称为Jury Learners），接收（receive）Acceptor已接受（accept）的提案，当这组Learners发现同一个提案被多数Acceptor接受（accept），就会形成（chosen）决议。
+
+6. 谁负责通知Learner？
+> 由陪审团Learners（Jury Learners）发起广播，告知其他Learner决议已经形成，同步决议。
+
+7. 每个副本如何生成唯一且不重复的epoch？
+> Google的Chubby论文给出了一种步长的方式:以3个proposer P1、P2、P3为例，开始m=0,编号分别为0，1，2P1提交的时候发现了P2已经提交，P2编号为1 \> P1的0，因此P1重新计算编号：new P1 = 1\*3+0 = 4，P3以编号2提交，发现小于P1的4，因此P3重新编号：new P3 = 1\*3+2 = 5
+
+8. paxos算法中epoch编号一直递增不重复的，请问在实现paxos算法时，如何处理溢出的问题呢？可能出现proposer的epoch溢出，而acceptor的latest\_prepared\_epoch是一个很大的值，从而算法无法进行下去？
+> Epoch不一定要是int整数，只要是可以比较大小的对象就可以。因此解决溢出的方法也很多，例如直接用数组模拟大数，溢出后增加数组的元素数等等。
+
+# 参考
+1. [Paxos算法1-算法形成理论](http://blog.csdn.net/chen77716/article/details/6166675)
+2. [Paxos算法2-算法过程](http://blog.csdn.net/chen77716/article/details/6170235)
+3. [Paxos算法3-实现探讨](http://blog.csdn.net/chen77716/article/details/6172392)
+4. [对 Paxos 的一些理解](https://yq.aliyun.com/articles/53351)
+5. [Paxos算法深入分析](http://blog.csdn.net/anderscloud/article/details/7175209)
+6. [理解 Paxos](http://www.cnblogs.com/bodhitree/p/5065754.html)
+7. [分布式一致性算法——paxos](http://www.hollischuang.com/archives/693)
+8. [2PC到3PC到Paxos到Raft到ISR](https://segmentfault.com/a/1190000004474543)
+9. [Paxos算法小结](http://www.cnblogs.com/shaohef/p/4499881.html)
+10. [Paxos/Mutil-paxos 算法浅析](http://www.chongh.wiki/blog/2016/04/27/paxos-mutilpaxos/)
+11. [[Paxos三部曲之一] 使用Basic-Paxos协议的日志同步与恢复](http://oceanbase.org.cn/?p=90#rd&sukey=3903d1d3b699c208f8fd9337d59ef4b09ab31499f39398e7321ec8f79d2ff57fd6062dc4dc9b838183e81762efbba0a6)
+12. [一致性算法 Paxos Raft 的一些整理](http://wangzhezhe.github.io/blog/2015/10/05/consensus-paxos-and-raft/)
+13. [Paxos协议 学习小结](http://baozh.github.io/2016-03/paxos-learning/)
