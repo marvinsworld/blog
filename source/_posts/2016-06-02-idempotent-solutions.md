@@ -3,7 +3,7 @@ date: 2016-06-02 14:41:17
 categories: 基础
 tags: [幂等,防重复提交]
 ---
-<img src="/img/solutions.jpg" width="600" height="450" class="img-topic" />
+<img src="/img/solutions.jpg" width="480" height="360" class="img-topic" />
 
 双十一，零点刚开始，小明就迫不及待地点击提交订单按钮，1秒，2秒，3秒，没反应，小明有点心慌，又快速地点击了两下，提示下单成功。随后小明到我的订单列表中一看，发现有三个相同的订单，小明一脸黑线。
 <!--more-->
