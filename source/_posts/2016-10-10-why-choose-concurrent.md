@@ -70,6 +70,7 @@ public class ThreadStatsTest {
 2. [如何合理地估算线程池大小？](http://ifeve.com/how-to-calculate-threadpool-size/)
 3. [从Java视角理解系统结构(一)CPU上下文切换](http://ifeve.com/what-is-context-switching/)
 4. [什么是上下文切换](http://ifeve.com/java-context-switch/)
+5. [How can I Monitor cpu usage per thread of a java application in a linux multiprocessor environment?](http://stackoverflow.com/questions/1680865/how-can-i-monitor-cpu-usage-per-thread-of-a-java-application-in-a-linux-multipro)
 
 
 
