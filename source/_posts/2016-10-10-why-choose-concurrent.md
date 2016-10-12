@@ -1,7 +1,7 @@
 title: 为什么我们要考虑并发
 date: 2016-10-10 06:58:03
 categories: Java并发演进之路
-tags: [并发,上下文切换,效率，线程数]
+tags: [并发,上下文切换,效率,线程数]
 ---
 <img src="/img/cpu.png" width="300" height="300" class="img-topic" />
 “很显然嘛，并发可以提升效率”
