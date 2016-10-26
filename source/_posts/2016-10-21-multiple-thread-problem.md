@@ -4,7 +4,7 @@ categories: Java并发演进之路
 tags: [多线程,问题,抢占式,死锁]
 ---
 <img src="/img/problem.jpg" class="img-topic" />
-并发（Concurrency）和并行（Parallelism）在多线程中经常被使用到，很多人对这两个概念不是很清楚，经常会混淆。而事实上，并发和并行一直贯穿在计算机的发展过程中，因此有必要在深入研究并发之前，深刻的研究一下并发和并行。
+终于又回到了JAVA，如果你看先前的[为什么我们要考虑并发](http://geyifan.cn/2016/10/10/why-choose-concurrent/)文章，经过一系列思考后仍然要加入到多线程阵营的话，抱歉，我可能又要给你泼冷水了。
 <!--more-->
 
 ## 很难编写一个线程安全的程序
@@ -23,5 +23,5 @@ tags: [多线程,问题,抢占式,死锁]
 引入多线程的本意是利用CPU空闲时间提升CPU的利用率，提升性能，然而由于对多线程和操作系统的理解不够深入，会带来额外的问题，这些问题导致多线程安全编程难上加难。
 
 ## 参考
-1. [ 为什么多线程是个坏主意 ](http://ifeve.com/why-threads-bad/)
-2. [ Java多线程的调度策略 ](http://blog.csdn.net/wangyangzhizhou/article/details/41122385)
+1. [为什么多线程是个坏主意](http://ifeve.com/why-threads-bad/)
+2. [Java多线程的调度策略](http://blog.csdn.net/wangyangzhizhou/article/details/41122385)
