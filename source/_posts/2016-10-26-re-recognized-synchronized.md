@@ -4,5 +4,59 @@ categories: Java并发演进之路
 tags: [锁,监视器]
 ---
 <img src="/img/synchronized.png" width="400" class="img-topic" />
-进程（Process）和线程（Thread）是操作系统的基本概念。这两个内容也一直困扰着我，如何理解，要讨论清楚进程和线程，涉及的内容很多，我更多关注的是对深入研究并发能提供哪些指导意义，在使用如何选择。
+synchronized在JDK5之前一直被称为重量级锁，是一个较为鸡肋的设计，而在JDK6对synchronized内在机制进行了大量显著的优化，加入了CAS，轻量级锁和偏向锁的功能，性能上已经跟ReentrantLock相差无几，而且synchronized在使用上更加简单，不易出错（避免哲学家就餐问题造成的死锁），因此如果仅仅是为了实现互斥，而不需要使用基于Lock的附加属性（中断、条件等），推荐优先使用synchronized。
 <!--more-->
+
+## synchronized用法
+synchronized有同步方法和同步语句块两种形式，分锁定对象和作用域两个维度，当锁定的对象进入作用域时，互斥才会生效。**一个线程访问拥有相同锁定对象时，进入作用域时必须以串行方式进行**。修饰的对象有：修饰普通方法（又称为同步方法），修饰静态方法，修饰对象实例，修饰class literals（类名称字面常量）。
+
+### 修饰普通方法
+又称同步方法，锁定的是调用这个同步方法对象。一个线程访问实例对象中的synchronized代码块时，其他试图访问**该对象synchronized修饰的区域**的线程将阻塞。同一个对象共享一把锁，同一时间只能有一个synchronized区域可以获得锁。需要注意两点：（1）作用只会在同一个实例上，（2）对象中的所有synchronized修饰的区域。例如：对于fooA对象，线程t1，t2访问methodA是互斥的，线程t1，t2分别访问methodA，methodB同样是互斥的；当访问methodA时，methodB 不可以访问，methodC可以访问。
+```java
+public class Foo implements Runnable {
+    public static synchronized void methodA() {
+        //TODO
+    }
+
+    public static synchronized void methodB() {
+        //TODO
+    }
+
+    public void methodC() {
+        //TODO
+    }
+
+    public static void main(String[] args) {
+        Foo fooA = new Foo();
+        Foo fooB = new Foo();
+
+        Thread t1 = new Thread(fooA, "t1");
+        Thread t2 = new Thread(fooB, "t2");
+        t1.start();
+        t2.start();
+    }
+}
+```
+
+### 修饰静态方法
+锁定是静态方法所属类的所有对象，此时该类的所有对象共用一把锁。一个线程访问synchronized静态方法时，其他试图访问**该类synchronized修饰的区域**的线程都将阻塞，而非synchronized修饰的区域不会阻塞。修饰静态方法是修饰普通方法的加强版，后者指锁定当前对象，而前者锁定该类的所有对象。例如：对象fooA和fooB，线程t1，t2分别访问methodA，methodB同样是互斥的。
+
+### 同步语句块
+修饰对象实例的情况与修饰普通方法一致，区别在于只有线程进入同步语句块时，才是互斥的。而修饰class literals（类名称字面常量）与修饰静态方法一致。例如：methodD锁定的是当前对象，而methodE中的synchronized锁定的是Foo类的所有对象。
+```java
+public class Foo {
+    public void methodD() {
+        synchronized (this) {
+            //TODO
+        }
+    }
+
+    public void methodE() {
+        synchronized (Foo.class) {
+            //TODO
+        }
+    }
+}
+```
+
+
