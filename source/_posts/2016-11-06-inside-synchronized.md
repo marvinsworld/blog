@@ -4,7 +4,7 @@ categories: Java并发演进之路
 tags: [线程同步,监视器,锁]
 ---
 <img src="/img/synchronized.png" width="400" class="img-topic" />
-synchronized既保证原子性，又保证内存可见性，是一种线程同步的方式。synchronized的实现基于JVM底层。
+synchronized既保证原子性，又保证内存可见性，是一种线程同步的方式，是锁机制的一种java实现。synchronized的实现基于JVM底层，JVM是基于monitor实现的，而monitor的实现依赖于操作系统的互斥实现。
 <!--more-->
 
 ## 线程安全与同步
@@ -13,7 +13,7 @@ synchronized既保证原子性，又保证内存可见性，是一种线程同�
 线程安全是属性，线程同步是方式。
 
 ## 指令
-synchronized同步代码块是通过monitorenter和monitorexit指令实现的，而synchronized同步方法是基于ACC_SYCHRONIZED标志，同步方法被调用时JVM会检查这个标志。monitorenter标记临界区的开始，线程执行到 monitorenter 指令时，将会尝试获取对象所对应的 monitor 的所有权；monitorexit标记临界区的结束，线程执行到 monitorexit 指令时，将释放对象所对应的 monitor 的所有权。
+synchronized同步代码块是通过monitorenter和monitorexit指令实现的，而synchronized同步方法是基于ACC\_SYCHRONIZED标志，同步方法被调用时JVM会检查这个标志。monitorenter标记临界区的开始，线程执行到 monitorenter 指令时，将会尝试获取对象所对应的 monitor 的所有权；monitorexit标记临界区的结束，线程执行到 monitorexit 指令时，将释放对象所对应的 monitor 的所有权。
 
 ```java
 public class SynchronizedMethod {
@@ -59,3 +59,41 @@ public class com.memory.SynchronizedTest {
           17    20    17   any
 }
 ```
+
+## 锁的种类
+![java synchronized锁升级](/img/synchronized-lock-upgrade.png "java synchronized锁升级")
+JDK1.6中对synchronized优化引入了偏向锁，轻量级锁，重量级锁。锁的升级过程是单方向的，只允许从低到高升级，不允许降级。
+
+重量级锁（Heavyweight Lock）是将程序运行交出控制权，将线程挂起，由操作系统来负责线程间的调度，负责线程的阻塞和执行。这样会出现频繁地对线程运行状态的切换，线程的挂起和唤醒，消耗大量的系统资源，导致性能低下。
+
+轻量级锁（lightweight Locking）是相对于重量级锁而言的，在synchronized实现中使用自旋的方式，实际是通过CPU自旋等待的方式替代线程切换，竞争的线程不会因此而阻塞，避免阻塞唤醒造成的CPU负荷。采用自旋的方式有利有弊，当锁占用的时间较短时，较少次数的自旋等待就可以获取锁；但在锁占用的时间较长时，自旋会白白浪费大量的CPU资源。因此自旋的次数有一定要在限定之内，自旋失败就会立即将锁升级为重量级锁，称为锁膨胀。
+
+偏向锁（Biased Locking ）从字面含义是这把锁是有私心的，会倾向于上次访问的线程。Hotspot的作者在他的论文《QRL-OpLocks-BiasedLocking》中阐述到，研究发现大多数情况下不存在多线程争夺共享资源，而且总是由同一线程多次获得，考虑到CAS （Compare-And-Swap）指令在获取Java监视器时会造成较大的CPU延迟，为了让线程获得锁的代价更低而引入了偏向锁。
+
+## 锁标记的位置
+64位虚拟机中，标记字段（Mark Word）中包含哈希吗（HashCode，存放31bits对象的hashcode值），GC分代年龄（Generational GC Age，4bits，因此分代年龄最高为15），偏向线程ID，偏向锁标记。
+synchronized锁的四个状态：无锁状态，偏向锁，轻量级锁和重量级锁，在Mark Word中对应不同的字段。
+![java synchronized不同级别锁中的Mark Word](/img/synchronized-markword.png "java synchronized不同级别锁中的Mark Word")
+
+我是葛一凡，希望对你有用。
+![微信公众号](/img/qrcode.jpg "微信公众号")
+
+## 参考
+1. [Java 锁机机制——浅析 Synchronized](http://blog.csdn.net/wwh578867817/article/details/52004265)
+2. [Biased Locking in HotSpot](https://blogs.oracle.com/dave/entry/biased_locking_in_hotspot)
+3. [Java Synchronised机制](https://blog.dreamtobe.cn/2015/11/13/java_synchronized/)
+4. [深入JVM锁机制1-synchronized](http://blog.csdn.net/chen77716/article/details/6618779)
+5. [多线程之：偏向锁，轻量级锁，重量级锁](http://www.cnblogs.com/shangxiaofei/p/5569879.html)
+6. [JVM内部细节之一：synchronized关键字及实现细节（轻量级锁Lightweight Locking）](http://www.cnblogs.com/javaminer/p/3889023.html)
+7. [java锁优化](http://luojinping.com/2015/07/09/java%E9%94%81%E4%BC%98%E5%8C%96/)
+8. [Java并发编程：Synchronized底层优化（偏向锁、轻量级锁）](http://www.cnblogs.com/paddix/p/5405678.html)
+9. [虚拟机中的锁优化简介（适应性自旋/锁粗化/锁削除/轻量级锁/偏向锁）](http://icyfenix.iteye.com/blog/1018932)
+10. [JVM内部细节之二：偏向锁（Biased Locking）](http://www.cnblogs.com/javaminer/p/3892288.html)
+11. [小议偏向锁](http://xieyj.iteye.com/blog/322089)
+12. [synchronized、锁、多线程同步的原理是咋样的](http://www.jianshu.com/p/5dbb07c8d5d5)
+13. [Java中的锁](http://www.importnew.com/19472.html)
+14. [markOop.hpp](http://hg.openjdk.java.net/jdk7/jdk7/hotspot/file/9b0ca45cd756/src/share/vm/oops/markOop.hpp)
+15. [5 Things You Didn't Know About Synchronization in Java and Scala](http://blog.takipi.com/5-things-you-didnt-know-about-synchronization-in-java-and-scala/)
+16. 论文：The Smart Energy Management of Multithreaded Java Applications on Multi-Core Processors
+
+
