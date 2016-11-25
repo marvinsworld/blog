@@ -34,3 +34,4 @@ TODO
 7. [缓存一致性（Cache Coherency）入门](http://www.infoq.com/cn/articles/cache-coherency-primer)
 8. [CPU Cache & False Sharing & 存储器层次结构](http://novoland.github.io/c%E5%92%8Cos/2014/07/26/CPU%20Cache%20%E4%B8%8E%20%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84.html)
 9 .[CPU缓存刷新的误解](http://ifeve.com/cpu-cache-flushing-fallacy-cn/)
+10.[Java中的伪共享以及应对方案](https://yq.aliyun.com/articles/62865?utm_campaign=wenzhang&utm_medium=article&utm_source=QQ-qun&utm_content=m_7536)
