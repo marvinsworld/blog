@@ -3,7 +3,7 @@ date: 2016-04-13 13:11:50
 tags: [碎片时间]
 categories: 感悟
 ---
-<img src="/img/time.jpg" class="img-topic" />
+<img src="/img/time.jpg" width="300" class="img-topic" />
 是不是在每个发年终奖的时候，一边羡慕XX的亲戚，XX的同学能拿到那么多奖金？是不是在找工作的时候才后悔当初怎么多拿出点时间来好好学习一下XX知识或技能？原谅我使用这么抒情的方式开头，其实这就是我的感触。
 临渊羡鱼不如退而结网
 <!--more-->

@@ -3,7 +3,7 @@ date: 2016-10-26 18:21:30
 categories: Java并发演进之路
 tags: [锁,监视器,互斥,同步]
 ---
-<img src="/img/synchronized.png" width="400" class="img-topic" />
+<img src="/img/synchronized.png" width="300" class="img-topic" />
 synchronized在JDK5之前一直被称为重量级锁，是一个较为鸡肋的设计，而在JDK6对synchronized内在机制进行了大量显著的优化，加入了CAS，轻量级锁和偏向锁的功能，性能上已经跟ReentrantLock相差无几，而且synchronized在使用上更加简单，不易出错（避免哲学家就餐问题造成的死锁），因此如果仅仅是为了实现互斥，而不需要使用基于Lock的附加属性（中断、条件等），推荐优先使用synchronized。
 <!--more-->
 

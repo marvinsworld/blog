@@ -3,7 +3,7 @@ date: 2016-10-10 06:58:03
 categories: Java并发演进之路
 tags: [并发,上下文切换,效率,线程数]
 ---
-<img src="/img/cpu.png" width="300" height="300" class="img-topic" />
+<img src="/img/cpu.png" width="300" class="img-topic" />
 “很显然嘛，并发可以提升效率”
 
 我最初开始学习并发时，觉得原因显而易见，多线程执行肯定比单线程快，就像多个人一块干活要比一个人快。不过事实远比想象的要复杂，让我们把视角缩小到CPU级别，细致地观察一下多线程并发时，CPU在做什么。

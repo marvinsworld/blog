@@ -3,7 +3,7 @@ date: 2016-07-17 16:19:25
 categories: 数据库
 tags: [一致性,事务,隔离级别,锁]
 ---
-<img src="/img/transaction-lock.png" width="300" height="300" class="img-topic" />
+<img src="/img/transaction-lock.png" width="300" class="img-topic" />
 事务是一个高度抽象的概念。事务要解决的问题是如何使多次操作，对外部看起来是一个整体的操作。理想的事务是一把锁，把一个一个的事务按照队列一样排列，不过这样性能我们无法接受，因此引入了引入了MVCC (Multi-Version Concurrency Control) 的概念，MVCC本质是copy-on-write。事务的本质是什么？事务=锁+MVCC
 <!--more-->
 
