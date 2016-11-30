@@ -157,9 +157,9 @@ footer.article-footer
 .comments-count-link
   padding 0.5em
   margin 0 0.3em
-  &:hover
-    color color-white !important
-    background color-blue
+  //&:hover
+    //color color-white !important
+    //background color-blue
 
 
 //tags&categories
@@ -190,13 +190,20 @@ footer.article-footer
       absolute-center(1.2em)
       content "\f02c"
   a
-    float left
-    padding 0 0.3em
-    margin 0.3em
-    background lighten(color-gray,50%)
-    &:hover
-      color color-white
-      background color-blue
+    display: inline-block;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 3px 6px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 0px 1px 10px 0;
+    color: #ccc;
+    cursor: pointer;
+  a:hover
+    transition: all .5s;
+    border: 1px solid color-theme;
+    color color-theme;
+    background lighten(color-gray, 50%);
   
 .article-categories
   color lighten(color-gray,20%)
@@ -211,9 +218,9 @@ footer.article-footer
 .article-category-link
   padding 0.5em
   margin 0 0.3em
-  &:hover
-    color color-white !important
-    background color-blue
+  //&:hover
+    //color color-white !important
+    //background color-blue
 
 //page nav
 .article-nav
@@ -228,9 +235,9 @@ footer.article-footer
     overflow hidden
   .prev,.next
     a
-      &:hover
-        background color-blue
-        color color-white
+      //&:hover
+        //background color-blue
+        //color color-white
   .prev
     width 100%
     float left
