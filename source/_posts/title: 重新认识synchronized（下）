@@ -87,22 +87,21 @@ synchronized锁的四个状态：无锁状态，偏向锁，轻量级锁和重�
 
 ## 参考
 1. [JSR 133 (Java Memory Model) FAQ](http://www.cs.umd.edu/\~pugh/java/memoryModel/jsr-133-faq.html)
-2. [Java内存模型(一)](http://www.cloudchou.com/softdesign/post-631.html)
-3. [Java 锁机机制——浅析 Synchronized](http://blog.csdn.net/wwh578867817/article/details/52004265)
-4. [Biased Locking in HotSpot](https://blogs.oracle.com/dave/entry/biased_locking_in_hotspot)
-5. [Java Synchronised机制](https://blog.dreamtobe.cn/2015/11/13/java_synchronized/)
-6. [深入JVM锁机制1-synchronized](http://blog.csdn.net/chen77716/article/details/6618779)
-7. [多线程之：偏向锁，轻量级锁，重量级锁](http://www.cnblogs.com/shangxiaofei/p/5569879.html)
-8. [JVM内部细节之一：synchronized关键字及实现细节（轻量级锁Lightweight Locking）](http://www.cnblogs.com/javaminer/p/3889023.html)
-9. [java锁优化](http://luojinping.com/2015/07/09/java%E9%94%81%E4%BC%98%E5%8C%96/)
-10. [Java并发编程：Synchronized底层优化（偏向锁、轻量级锁）](http://www.cnblogs.com/paddix/p/5405678.html)
-11. [虚拟机中的锁优化简介（适应性自旋/锁粗化/锁削除/轻量级锁/偏向锁）](http://icyfenix.iteye.com/blog/1018932)
-12. [JVM内部细节之二：偏向锁（Biased Locking）](http://www.cnblogs.com/javaminer/p/3892288.html)
-13. [小议偏向锁](http://xieyj.iteye.com/blog/322089)
-14. [synchronized、锁、多线程同步的原理是咋样的](http://www.jianshu.com/p/5dbb07c8d5d5)
-15. [Java中的锁](http://www.importnew.com/19472.html)
-16. [markOop.hpp](http://hg.openjdk.java.net/jdk7/jdk7/hotspot/file/9b0ca45cd756/src/share/vm/oops/markOop.hpp)
-17. [5 Things You Didn't Know About Synchronization in Java and Scala](http://blog.takipi.com/5-things-you-didnt-know-about-synchronization-in-java-and-scala/)
-18. 论文：The Smart Energy Management of Multithreaded Java Applications on Multi-Core Processors
+[Java 锁机机制——浅析 Synchronized](http://blog.csdn.net/wwh578867817/article/details/52004265)
+2. [Biased Locking in HotSpot](https://blogs.oracle.com/dave/entry/biased_locking_in_hotspot)
+3. [Java Synchronised机制](https://blog.dreamtobe.cn/2015/11/13/java_synchronized/)
+4. [深入JVM锁机制1-synchronized](http://blog.csdn.net/chen77716/article/details/6618779)
+5. [多线程之：偏向锁，轻量级锁，重量级锁](http://www.cnblogs.com/shangxiaofei/p/5569879.html)
+6. [JVM内部细节之一：synchronized关键字及实现细节（轻量级锁Lightweight Locking）](http://www.cnblogs.com/javaminer/p/3889023.html)
+7. [java锁优化](http://luojinping.com/2015/07/09/java%E9%94%81%E4%BC%98%E5%8C%96/)
+8. [Java并发编程：Synchronized底层优化（偏向锁、轻量级锁）](http://www.cnblogs.com/paddix/p/5405678.html)
+9. [虚拟机中的锁优化简介（适应性自旋/锁粗化/锁削除/轻量级锁/偏向锁）](http://icyfenix.iteye.com/blog/1018932)
+10. [JVM内部细节之二：偏向锁（Biased Locking）](http://www.cnblogs.com/javaminer/p/3892288.html)
+11. [小议偏向锁](http://xieyj.iteye.com/blog/322089)
+12. [synchronized、锁、多线程同步的原理是咋样的](http://www.jianshu.com/p/5dbb07c8d5d5)
+13. [Java中的锁](http://www.importnew.com/19472.html)
+14. [markOop.hpp](http://hg.openjdk.java.net/jdk7/jdk7/hotspot/file/9b0ca45cd756/src/share/vm/oops/markOop.hpp)
+15. [5 Things You Didn't Know About Synchronization in Java and Scala](http://blog.takipi.com/5-things-you-didnt-know-about-synchronization-in-java-and-scala/)
+16. 论文：The Smart Energy Management of Multithreaded Java Applications on Multi-Core Processors
 
 
