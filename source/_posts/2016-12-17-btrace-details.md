@@ -34,6 +34,8 @@ tags: [细节,利器,堆栈,Btrace]
 1. ① clazz和② method对应的值只有两种形式，完全匹配和正则表达式。使用完全匹配时，不需要特殊处理；使用正则表达式时，需要把正则放在两个正斜杠`/`的中间，比如`"/com\\.ewan\\..+/"`。
 2. 不要盲目的跟踪过多的类和方法，一方面不容易定位问题，另一方面性能会非常慢。不能为了解决一个问题，而引入了新的问题。
 3. 特殊方法定位。构造函数使用`method="<init>"`
+4. 跟踪接口：`clazz="+java.util.Map", method="put"`
+5. 跟踪注解：`clazz="@javax.jws.WebService",method="@javax.jws.WebMethod"`
 
 ## 一些理解
 BTrace的官方文档过于简单，虽然被誉为神器，不过很多技巧需要在实践过程中摸索总结。BTrace擅长的地方是通过问题呈现出来的现象（比如内存使用率居高不下、接口响应时间过长），结合排查问题经验，一步一步的缩小问题的怀疑范围，最终定位问题。
@@ -54,3 +56,4 @@ BTrace的官方文档过于简单，虽然被誉为神器，不过很多技巧�
 5. [BTrace简介及使用](http://blog.csdn.net/wildandfly/article/details/21107661)
 6. [Java BTrace实战(1)--BTrace的入门和使用](http://www.cnblogs.com/mumuxinfei/p/3944823.html)
 7. [基于 JVMTI 实现 Java 线程的监控](https://www.ibm.com/developerworks/cn/java/j-lo-jvmti/)
+8. [如何在生产环境使用Btrace进行调试](http://www.jianshu.com/p/dbb3a8b5c92f)
