@@ -1,6 +1,6 @@
 title: Basic Paxos算法
 date: 2016-06-15 10:03:09
-categories: 分布式算法
+categories: 分布式
 tags: [一致性,分布式]
 ---
 <img src="/img/paxos.jpg" width="600" height="150" class="img-topic" />
