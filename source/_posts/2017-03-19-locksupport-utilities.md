@@ -49,11 +49,15 @@ LockSupport是使用Unsafe的park实现的，HotSpot Parker用condition和mutex�
 在第6行park执行操作时，线程尝试获取许可，由于线程threadA在启动后默认已经获取了许可，park必须等待许可释放后才可以执行。当主线程调用unpark方法释放threadA的许可，threadA才可以继续执行第7行。
 
 ## 与wait和notify区别
+park/unpark与wati/notify都提供阻塞唤醒的功能，用做线程间同步，不过两者 的粒度不同，park/unpark作用在线程上，而wait/notify作用在对象上，二者没有交集。Object的wait/notify使用前必须获取对象的监视器，而park/unpark不需要。
 
-
+写作不易，痛并快乐着；理解可能存在偏差，句句斟酌推敲；抵制抄袭，践行原创技术之路。如果本文能对您有所帮助，实为荣幸，我是葛一凡。
+![微信公众号](/img/qrcode.jpg "微信公众号")
 
 ## 参考
 1. [Java的LockSupport.park()实现分析](http://blog.csdn.net/hengyunabc/article/details/28126139)
 2. [java线程阻塞中断和LockSupport的常见问题](http://agapple.iteye.com/blog/970055)
-3. [Understanding JVM Thread States](http://xmlandmore.blogspot.com/2012/08/understanding-jvm-thread-states.html)
-4. [java并发包系列---LockSupport](http://blog.csdn.net/opensure/article/details/53349698)
+3. [多线程之Java线程阻塞与唤醒](http://blog.csdn.net/wangyangzhizhou/article/details/41777547)
+4. [Understanding JVM Thread States](http://xmlandmore.blogspot.com/2012/08/understanding-jvm-thread-states.html)
+5. [ java并发包系列---LockSupport](http://blog.csdn.net/opensure/article/details/53349698)
+6. [Java并发包源码学习之AQS框架（三）LockSupport和interrupt](http://www.cnblogs.com/zhanjindong/p/java-concurrent-package-aqs-locksupport-and-thread-interrupt.html)
