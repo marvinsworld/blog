@@ -11,7 +11,6 @@ Condtion也被称为条件队列（condition queues）或者条件变量（condi
 - 从条件等待的标准形式说开来
 - 专业术语
 - 锁、条件谓词、条件队列三者关系
-- Object VS ConditionObject
 
 ## 从条件等待的标准形式说开来
 
@@ -65,5 +64,10 @@ while (条件状态不满足) {//②
 ## 参考
 1. [Java Platform Standard Edition 7 Documentation](https://docs.oracle.com/javase/7/docs/api/index.html)
 2. [对条件变量(condition variable)的讨论](http://blog.csdn.net/nhn_devlab/article/details/6117239)
+3. [从零单排 Java concurrency, wait & notify](http://regrecall.github.io/2014/06/24/wait-notify/)
+4. [并行编程之条件变量（posix condition variables）](http://blog.csdn.net/hengyunabc/article/details/27969613?locationNum=1&fps=1)
+5. [C++11之多线程(三、条件变量）](http://blog.poxiao.me/p/multi-threading-in-cpp11-part-3-condition-variable/)
+6. [Linux线程同步之条件变量](http://blog.csdn.net/anonymalias/article/details/9174481)
+7. [JAVA并发-条件队列](http://yizhenn.iteye.com/blog/2308688)
 
 
