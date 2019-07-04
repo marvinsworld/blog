@@ -30,8 +30,7 @@ avatar:
 
 
 # AboutPage background, support multiple images.
-about_big_image: []
-
+about_big_image: 
 
 # Homepage thumbnail
 random_thumb: false
