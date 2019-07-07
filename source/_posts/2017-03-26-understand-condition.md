@@ -3,7 +3,7 @@ date: 2017-03-26 17:17:07
 categories: Java并发演进之路
 tags: [Condition,条件,阻塞,唤醒]
 photos:
-	- /img/condition-queues.jpeg
+	- /img/condition-queues.jpg
 ---
 Condtion也被称为条件队列（condition queues）或者条件变量（condition variables），是利用线程间共享的全局变量进行同步的一种机制。主要包括两个动作：一个线程等待“条件谓词成立”而挂起；另一个线程使“条件谓词成立”，发出条件成立信号。由于对共享状态信息的访问发生在多线程中，因此条件变量的使用是需要结合锁机制的（一般是互斥锁）。也就是说，一个线程要等到临界区的共享数据达到某种状态时再进行某种操作，而这个状态的成立，则是由另外一个线程来完成后发送信号来通知的。
 <!--more-->
