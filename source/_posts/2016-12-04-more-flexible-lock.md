@@ -2,8 +2,9 @@ title: 更加灵活的Lock
 date: 2016-12-04 22:50:32
 categories: Java并发演进之路
 tags: [显示锁,中断,灵活]
+photos:
+    - /img/lock.png
 ---
-<img src="/img/lock.png" width="300" class="img-topic" />
 Lock是一把相对于更加灵活的锁。灵活之处在于提供了超时、可中断的获取锁方式，把这种自由度交给用户控制；与synchronized不同，Java内置锁就像一个大包大揽的家长，把获取、释放锁都自己处理了。依然保持上文中的观点：如果仅仅是为了实现互斥，而不需要使用基于Lock的附加属性（中断、条件等），推荐优先使用synchronized。
 <!--more-->
 

@@ -2,8 +2,9 @@ title: 幂等策略分析
 date: 2016-06-02 14:41:17
 categories: 基础
 tags: [幂等,重复提交,副作用,资源]
+photos:
+  - /img/solution.png
 ---
-<img src="/img/solution.png" width="300" class="img-topic" />
 幂等概念来自数学，表示N次变换和1次变换的结果是相同的。这里讨论在某些场景下，客户端在调用服务没有达到预期结果时，会进行多次调用，为避免多次重复的调用对服务资源产生副作用，服务提供者会承诺满足幂等。
 <!--more-->
 

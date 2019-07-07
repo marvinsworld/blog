@@ -641,6 +641,7 @@ object {
 	}
 .entry-thumbnail img {
 	display: block;
+	max-height: 300px;
 	}
 .entry-content {
 	margin: 0 0 30px;

@@ -2,8 +2,9 @@ title: AQS漫谈
 date: 2017-01-21 20:00:01
 categories: Java并发演进之路
 tags: [AQS,基础,自旋,获取,释放]
+photos:
+	- /img/aqs-puzzle-piece.png
 ---
-<img src="/img/aqs-puzzle-piece.png" width="300" class="img-topic" />
 AbstractQueuedSynchronizer简称AQS，字面上解释为抽象队列同步器。AQS是java.util.concurrent.locks的核心，也是Java并发包的基础，就像拼图游戏中的最后一片拼块。
 <!--more-->
 

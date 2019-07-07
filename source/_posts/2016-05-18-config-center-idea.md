@@ -2,8 +2,9 @@ title: 配置中心Config Center思路
 date: 2016-05-18 09:01:34
 categories: 开源
 tags: [配置中心,思路]
+photos:
+  - /img/idea.jpg
 ---
-<img src="/img/idea.jpg" width="273" class="img-topic" />
 最近在研究配置中心的框架,总结一下优缺点.
 <!--more-->
 

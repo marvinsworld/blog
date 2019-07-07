@@ -2,9 +2,9 @@ title: Logback介绍
 date: 2015-09-29 14:52:49
 tags: [root,logger]
 categories: 基础
+photos:
+	- /img/logback_logo.jpg
 ---
-<img src="/img/logback_logo.jpg" width="400" height="400" class="img-topic" />
-<!-- ![Alt text](/img/logback_logo.jpg "logo") -->
 经常使用logbak,却对配置文件一知半解,今天好好研究了一下.
 <!--more-->
 # Logback的层级

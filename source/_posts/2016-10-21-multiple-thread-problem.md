@@ -2,8 +2,9 @@ title: 多线程带来哪些问题
 date: 2016-10-21 19:10:31
 categories: Java并发演进之路
 tags: [多线程,问题,抢占式,死锁]
+photos:
+  - /img/problem.jpg
 ---
-<img src="/img/problem.jpg" width="300" class="img-topic" />
 终于又回到了JAVA，如果你看先前的[为什么我们要考虑并发](http://geyifan.cn/2016/10/10/why-choose-concurrent/)文章，经过一系列思考后仍然要加入到多线程阵营的话，抱歉，我可能又要给你泼冷水了。
 <!--more-->
 

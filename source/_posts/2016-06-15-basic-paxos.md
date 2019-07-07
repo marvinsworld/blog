@@ -2,8 +2,9 @@ title: Basic Paxos算法
 date: 2016-06-15 10:03:09
 categories: 分布式
 tags: [一致性,分布式]
+photos:
+  - /img/paxos.jpg
 ---
-<img src="/img/paxos.jpg" width="600" height="150" class="img-topic" />
 Paxos算法是一种分布式系统高容错性的一致性算法，为了解决冗余副本间数据一致性的问题。Paxos本身不是很复杂，只是Lamport描述的过于晦涩。从Paxos论文发表到最终被大家认可经历了十多年的时间，如果作者Lamport能够一开始就换一种表达方式的话，或许Paxos在分布式系统中的应用能够更进一步。
 <!--more-->
 

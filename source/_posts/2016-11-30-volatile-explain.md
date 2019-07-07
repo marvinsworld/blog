@@ -2,8 +2,9 @@ title: volatile语义
 date: 2016-11-30 16:03:08
 categories: Java并发演进之路
 tags: [主内存,工作内存,同步,共享变量]
+photos:
+	- /img/volatile-visible.png
 ---
-<img src="/img/volatile-visible.png" width="300" class="img-topic" />
 volatile在Java内存模型（JMM）中，保证共享变量对所有线程可见，但不保证原子性。volatile语义是同步，通过共享变量的方式，完成线程间的通信。
 <!--more-->
 

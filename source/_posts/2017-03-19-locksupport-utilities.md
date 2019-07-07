@@ -2,8 +2,9 @@ title: AQS阻塞唤醒工具LockSupport
 date: 2017-03-19 15:45:35
 categories: Java并发演进之路
 tags: [AQS,信号量,阻塞,唤醒,许可]
+photos:
+    - /img/utilities.png
 ---
-<img src="/img/utilities.png" width="300" class="img-topic" />
 LockSupport在JDK源码中描述为：构建锁和其他同步类的基本**线程阻塞**原语，构建更高级别的同步工具集。LockSupport提供的park/unpark从线程的粒度上进行阻塞和唤醒，park/unpark模型真正解耦了线程之间的同步，线程之间不再需要一个Object或者其它变量来存储状态。
 <!--more-->
 

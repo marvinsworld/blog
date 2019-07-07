@@ -2,8 +2,9 @@ title: Python安装
 date: 2016-04-25 15:07:39
 categories: Begin Python
 tags: [python,安装]
+photos:
+	- /img/install.png
 ---
-<img src="/img/install.png" width="250" height="250" class="img-topic" />
 Python是诗一般富有美感的语言。从设计上可以体现出python在刻意的追求这种美感，在开发中，给人以丝绸般顺滑的感觉（有点像XX的广告，Python是不是考虑让我做代言人了呢？）
 
 Python是优雅的语言。一位名人说过这样一句话：追求优雅生活从Python开始。（我说的）从容优雅，大方得体。不像Java一会强制你考虑强制类型转换，一会强制考虑异常捕获。Python给人一种宽松愉悦的氛围，让人沉浸其中。

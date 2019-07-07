@@ -2,8 +2,9 @@ title: 重新认识synchronized（下）
 date: 2016-11-06 12:57:14
 categories: Java并发演进之路
 tags: [线程同步,监视器,锁]
+photos:
+  - /img/synchronized-pause.png
 ---
-<img src="/img/synchronized-pause.png" width="300" class="img-topic" />
 synchronized既保证原子性，又保证内存可见性，是一种线程同步的方式，是锁机制的一种java实现。synchronized的实现基于JVM底层，JVM是基于monitor实现的，而monitor的实现依赖于操作系统的互斥实现。
 <!--more-->
 

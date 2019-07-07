@@ -2,8 +2,9 @@ title: ZooKeeper怎么玩之六：常用命令
 date: 2016-04-12 17:02:04
 categories: ZooKeeper怎么玩
 tags: 
+photos:
+	- /img/zk_cmd.jpg
 ---
-<img src="/img/zk_cmd.jpg" class="img-topic" />
 前面讲了了那么多,还没正式说如何通过命令查看zookeeper的节点和详细内容,so,这次言简意赅的说一下,zookeeper的命令也非常简单
 <!--more-->
 # 查看包含的内容

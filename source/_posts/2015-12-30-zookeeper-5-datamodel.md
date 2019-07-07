@@ -2,8 +2,9 @@ title: ZooKeeper怎么玩之五：数据模型
 date: 2015-12-30 22:16:07
 categories: ZooKeeper怎么玩
 tags:
+photos:
+	- /img/zk_node.png
 ---
-<img src="/img/zk_node.png" width="500" height="500" class="img-topic" />
 ZooKeeper没有使用原语的方式,而是引入了操作粒度更细小的数据节点的概念:Znode,通过暴露操作这些Znode的API,使用者可以更方便的来实现更加适合自己的原语,而不是仅仅使用经过进一步封装后的同步原语,例如分布式锁.这就是事物的两面性,封装提供了便捷性,失去了灵活性.
 <!--more-->
 
